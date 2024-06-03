@@ -1,6 +1,6 @@
 // app/routes/dashboard.tsx
 import { LoaderFunction, json, redirect } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, Outlet, Link } from "@remix-run/react";
 import { getSession } from "~/session.server";
 
 interface User {
@@ -30,6 +30,10 @@ export default function Dashboard() {
       <p>Age: {user.age}</p>
       <p>Height: {user.height}</p>
       <p>Weight: {user.weight}</p>
+      <Link to="events">
+        <button>Click to participate in event</button>
+      </Link>
+      <Outlet />
     </div>
   );
 }
