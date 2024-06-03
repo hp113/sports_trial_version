@@ -1,13 +1,15 @@
 // app/routes/signin.tsx
-import { ActionFunction, json } from "@remix-run/node";
+import { ActionFunction, json, redirect } from "@remix-run/node";
 import { useActionData, Form } from "@remix-run/react";
 import { useEffect } from "react";
 import { getSupabase } from "~/supabaseClient";
+import { getSession, commitSession } from "~/session.server";
 
 interface ActionData {
   error?: string;
   success?: boolean;
   userName?: string;
+  userProfile?: any;
 }
 
 export const action: ActionFunction = async ({ request }) => {
@@ -29,7 +31,7 @@ export const action: ActionFunction = async ({ request }) => {
   // Fetch the user's profile details
   const { data: profiles, error: profileError } = await supabase
     .from("profiles")
-    .select("name")
+    .select("*")
     .eq("user_id", user?.id)
     .single();
 
@@ -39,7 +41,15 @@ export const action: ActionFunction = async ({ request }) => {
 
   const userName = profiles?.name;
 
-  return json<ActionData>({ success: true, userName });
+  // Create a session and store user info
+  const session = await getSession(request.headers.get("Cookie"));
+  session.set("user", profiles);
+
+  return redirect("/dashboard", {
+    headers: {
+      "Set-Cookie": await commitSession(session),
+    },
+  });
 };
 
 export default function Signin() {
@@ -48,7 +58,6 @@ export default function Signin() {
   useEffect(() => {
     if (actionData?.success && actionData.userName) {
       alert(`Welcome, ${actionData.userName}!`);
-      window.location.href = "/"; // Redirect to a dashboard or home page after sign-in
     }
   }, [actionData]);
 
