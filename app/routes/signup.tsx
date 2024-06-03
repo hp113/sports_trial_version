@@ -53,7 +53,7 @@ export default function Signup() {
 
   useEffect(() => {
     if (actionData?.success) {
-      alert("Please verify your email by checking your inbox.");
+      alert("Please click on the verification link sent to your mail Id.");
       window.location.href = "/";
     }
   }, [actionData]);
