@@ -15,7 +15,7 @@ export const loader: LoaderFunction = async ({request})=>{
     const supabase = getSupabase();
     const session = await getSession(request.headers.get("Cookie"));
     const user = session.get("user");
-    console.log(user);
+    // console.log(user);
     const {data: events, error} = await supabase.from('events').select('*');
 
     if(error){

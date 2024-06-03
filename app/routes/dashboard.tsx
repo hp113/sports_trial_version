@@ -22,6 +22,10 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export default function Dashboard() {
   const { user } = useLoaderData<{ user: User }>();
+  const signOut = async () =>{
+    await fetch("/signout",{method: "POST"});
+    window.location.href = "/";
+  }
 
   return (
     <div>
@@ -30,6 +34,7 @@ export default function Dashboard() {
       <p>Age: {user.age}</p>
       <p>Height: {user.height}</p>
       <p>Weight: {user.weight}</p>
+      <button onClick={signOut}>Sign Out</button>
       <Link to="events">
         <button>Click to participate in event</button>
       </Link>
