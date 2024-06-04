@@ -171,6 +171,8 @@ export default function DashboardEvents() {
       ) : (
         <p className="text-gray-500">No events available</p>
       )}
+      <br />
+      <div className="mt-7"></div>
     </div>
   );
 }

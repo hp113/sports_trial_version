@@ -18,7 +18,7 @@ export default function Index() {
       <h1 className="text-4xl font-bold text-white text-center mb-6 z-10">
         Welcome to Students Sports Competition
       </h1>
-      <nav>
+      <nav >
         <ul className="flex flex-col space-y-6 mt-4 md:space-x-4 md:space-y-0 md:flex-row items-center">
           <Card className="flex flex-col items-center p-6 w-3/4 sm:w-64 md:w-80 lg:w-96">
             <p className="text-center font-bold mb-4">
