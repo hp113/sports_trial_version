@@ -1,3 +1,7 @@
+import { LinksFunction } from "@remix-run/node";
+import stylesheet from "~/tailwind.css?url";
+import { NextUIProvider } from "@nextui-org/react";
+
 import {
   Links,
   Meta,
@@ -5,6 +9,10 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,11 +23,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-      </body>
+      <NextUIProvider>
+        <body>
+          {children}
+          <ScrollRestoration />
+          <Scripts />
+        </body>
+      </NextUIProvider>
     </html>
   );
 }
