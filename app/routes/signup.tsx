@@ -66,7 +66,7 @@ export default function Signup() {
   return (
     <div className="flex flex-col items-center">
       <h1 className="mb-3 mt-3 font-bold text-3xl">Sign Up Page</h1>
-      <Card className="w-3/5 ">
+      <Card className="w-4/5 sm:w-3/5 ">
         <Form
           method="post"
           className="flex flex-col gap-3 items-center px-3 py-2 "

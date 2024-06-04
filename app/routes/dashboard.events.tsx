@@ -98,17 +98,17 @@ export default function DashboardEvents() {
 
   return (
     <div className="p-4">
-      <h2 className="text-lg font-bold mb-4 ml-4 sm:ml-0">Event Details</h2>
+      <h2 className="sm:text-lg font-bold mb-4 ml-5 sm:ml-0">Event Details</h2>
       {events.length > 0 ? (
         <Table
           aria-label="Events table"
           // css={{ height: "auto", minWidth: "100%" }}
         >
           <TableHeader>
-            <TableColumn className="sm:font-bold sm:text-lg">Name</TableColumn>
-            <TableColumn className="sm:font-bold sm:text-lg">Date</TableColumn>
-            <TableColumn className="sm:font-bold sm:text-lg">Venue</TableColumn>
-            <TableColumn className="sm:font-bold sm:text-lg">Action</TableColumn>
+            <TableColumn className="text-xs sm:font-bold sm:text-lg">Name</TableColumn>
+            <TableColumn className="text-xs  sm:font-bold sm:text-lg">Date</TableColumn>
+            <TableColumn className="text-xs  sm:font-bold sm:text-lg">Venue</TableColumn>
+            <TableColumn className="text-xs sm:font-bold sm:text-lg">Action</TableColumn>
           </TableHeader>
           <TableBody>
             {events.map((event) => {
@@ -118,15 +118,15 @@ export default function DashboardEvents() {
 
               return (
                 <TableRow key={event.event_id}>
-                  <TableCell className="sm:text-base">{event.event_name}</TableCell>
-                  <TableCell className="sm:text-base">
+                  <TableCell className="text-xs sm:text-base">{event.event_name}</TableCell>
+                  <TableCell className="text-xs sm:text-base">
                     {new Date(event.event_date).toLocaleDateString("en-GB", {
                       day: "2-digit",
                       month: "short",
                       year: "numeric",
                     })}
                   </TableCell>
-                  <TableCell className="sm:text-base">{event.event_venue}</TableCell>
+                  <TableCell className="text-xs sm:text-base">{event.event_venue}</TableCell>
                   <TableCell >
                     <Form method="post">
                       <input
