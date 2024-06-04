@@ -64,18 +64,20 @@ export default function Signup() {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="mb-3 mt-3 font-bold ">Sign Up Page</h1>
-      <Card className="w-3/5">
+      <h1 className="mb-3 mt-3 font-bold text-3xl">Sign Up Page</h1>
+      <Card className="w-3/5 ">
         <Form
           method="post"
-          className="flex flex-col gap-3 items-center px-3 py-2"
+          className="flex flex-col gap-3 items-center px-3 py-2 "
         >
-          <div className="w-full ">
+          <div className="w-full">
             <Input
               type="email"
               name="email"
               label="Email"
               placeholder="Enter your email"
+              required
+              
             />
           </div>
           <div className="w-full">
@@ -84,6 +86,7 @@ export default function Signup() {
               name="password"
               label="Password"
               placeholder="Enter your password"
+              required
             />
           </div>
           <div className="w-full">
@@ -92,6 +95,7 @@ export default function Signup() {
               name="name"
               label="Name"
               placeholder="Enter your name"
+              required
             />
           </div>
           <div className="w-full">
@@ -100,6 +104,7 @@ export default function Signup() {
               name="age"
               label="Age"
               placeholder="Enter your age"
+              required
             />
           </div>
           <div className="w-full">
@@ -108,6 +113,7 @@ export default function Signup() {
               name="height"
               label="Height"
               placeholder="Enter your height"
+              required
             />
           </div>
           <div className="w-full">
@@ -116,6 +122,7 @@ export default function Signup() {
               name="weight"
               label="Weight"
               placeholder="Enter your weight"
+              required
             />
           </div>
           {actionData?.error && (
@@ -123,7 +130,7 @@ export default function Signup() {
           )}
           <Button
             type="submit"
-            className="bg-blue-500 text-white font-bold mt-auto"
+            className="bg-blue-500 text-white font-bold mt-auto text-base"
           >
             Sign Up
           </Button>

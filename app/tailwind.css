@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input::placeholder {
+    @apply text-lg text-gray-500 opacity-75;
+  }
+
+  input:focus {
+    @apply text-lg; /* Apply the same text-lg class for bigger font size */
+  }

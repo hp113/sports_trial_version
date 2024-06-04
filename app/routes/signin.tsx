@@ -4,6 +4,7 @@ import { useActionData, Form } from "@remix-run/react";
 import { useEffect } from "react";
 import { getSupabase } from "~/supabaseClient";
 import { getSession, commitSession } from "~/session.server";
+import { Button, Card, Input } from "@nextui-org/react";
 
 interface ActionData {
   error?: string;
@@ -20,7 +21,10 @@ export const action: ActionFunction = async ({ request }) => {
   const supabase = getSupabase();
 
   // Sign in the user
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
 
   if (error) {
     return json<ActionData>({ error: error.message }, { status: 400 });
@@ -62,18 +66,40 @@ export default function Signin() {
   }, [actionData]);
 
   return (
-    <div>
-      <h1>Sign In</h1>
-      <Form method="post">
-        <div>
-          <label>Email: <input type="email" name="email" required /></label>
-        </div>
-        <div>
-          <label>Password: <input type="password" name="password" required /></label>
-        </div>
-        {actionData?.error && <p style={{ color: "red" }}>{actionData.error}</p>}
-        <button type="submit">Sign In</button>
-      </Form>
+    <div className="flex flex-col items-center">
+      <h1 className="mb-3 mt-3 font-bold text-3xl">Sign In Page</h1>
+      <Card className="w-3/5 ">
+        <Form method="post" className="flex flex-col gap-3 items-center px-3 py-2 ">
+          <div className="w-full">
+          <Input
+              type="email"
+              name="email"
+              label="Email"
+              placeholder="Enter your email"
+              required
+              
+            />
+          </div>
+          <div className="w-full">
+          <Input
+              type="password"
+              name="password"
+              label="Password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          {actionData?.error && (
+            <p style={{ color: "red" }}>{actionData.error}</p>
+          )}
+          <Button
+            type="submit"
+            className="bg-blue-500 text-white font-bold mt-auto text-base"
+          >
+            Sign In
+          </Button>
+        </Form>
+      </Card>
     </div>
   );
 }
