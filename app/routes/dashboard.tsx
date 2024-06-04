@@ -38,6 +38,9 @@ export default function Dashboard() {
       <Link to="events">
         <button>Click to participate in event</button>
       </Link>
+      <Link to="participation">
+        <button>Click to view your participation</button>
+      </Link>
       <Outlet />
     </div>
   );
