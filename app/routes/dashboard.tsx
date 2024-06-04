@@ -31,7 +31,12 @@ export default function Dashboard() {
 
   return (
     <div className="flex flex-col items-center">
-
+      <Button
+        onClick={signOut}
+        className="absolute top-0 right-0 bg-red-500 text-white font-bold mt-2 mr-2 text-base"
+        >
+        Sign Out
+      </Button>
       <h1 className="mb-3 mt-3 font-bold text-3xl">Dashboard</h1>
       <h2 className="font-bold text-gray-500 mb-3">
         Hello {user.name} , here are your details...
@@ -50,12 +55,7 @@ export default function Dashboard() {
           </div>
         </Card>
       </Card>
-      <Button
-        onClick={signOut}
-        className="fixed top-0 right-0 bg-red-500 text-white font-bold mt-2 mr-2 text-base"
-        >
-        Sign Out
-      </Button>
+      
       <div className=" mt-4 flex gap-3 justify-center">
         <Link to="events">
           <Button className="bg-blue-500 text-white font-bold mt-auto text-base">
