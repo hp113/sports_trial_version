@@ -23,13 +23,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <NextUIProvider>
         <body>
+      <NextUIProvider>
           {children}
           <ScrollRestoration />
           <Scripts />
-        </body>
       </NextUIProvider>
+        </body>
     </html>
   );
 }
