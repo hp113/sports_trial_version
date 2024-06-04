@@ -56,9 +56,9 @@ export default function Dashboard() {
         </Card>
       </Card>
       
-      <div className=" mt-4 flex gap-3 justify-center">
+      <div className=" mt-4 flex flex-col sm:flex-row gap-3 items-center justify-center">
         <Link to="events">
-          <Button className="bg-blue-500 text-white font-bold mt-auto text-base">
+          <Button className="bg-blue-500 text-white font-bold mt-auto text-base ">
             Click to participate in event
           </Button>
         </Link>

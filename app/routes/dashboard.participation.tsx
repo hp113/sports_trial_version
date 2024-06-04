@@ -98,6 +98,8 @@ export default function DashboardParticipation() {
           </div>
         ))}
       </div>
+      <br />
+      <div className="mt-7"></div>
     </div>
   );
 }
