@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { getSupabase } from "~/supabaseClient";
 import { getSession, commitSession } from "~/session.server";
 import { Button, Card, Input } from "@nextui-org/react";
+import Footer from "~/components/footer";
 
 interface ActionData {
   error?: string;
@@ -100,6 +101,7 @@ export default function Signin() {
           </Button>
         </Form>
       </Card>
+      <Footer/>
     </div>
   );
 }

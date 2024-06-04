@@ -3,6 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import { getSession } from "~/session.server";
 import { getSupabase } from "~/supabaseClient";
 import { Card, CardBody, CardHeader, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react";
+import Footer from "~/components/footer";
 
 type Participant = {
   id: number;
@@ -59,7 +60,7 @@ export default function DashboardParticipation() {
   const { participants, competitors } = useLoaderData<LoaderData>();
 
   return (
-    <div className="p-4">
+    <div className="p-4 min-h-screen">
       <h1 className="p-2xl font-bold mb-4">
         This is the list of events in which you participated
       </h1>

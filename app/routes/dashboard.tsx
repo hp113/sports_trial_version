@@ -2,6 +2,7 @@
 import { Button, Card } from "@nextui-org/react";
 import { LoaderFunction, json, redirect } from "@remix-run/node";
 import { useLoaderData, Outlet, Link } from "@remix-run/react";
+import Footer from "~/components/footer";
 import { getSession } from "~/session.server";
 
 interface User {
@@ -67,6 +68,7 @@ export default function Dashboard() {
         </Link>
       </div>
       <Outlet />
+      <Footer />
     </div>
   );
 }

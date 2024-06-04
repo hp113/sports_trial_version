@@ -3,6 +3,7 @@ import { Button, Card, Input } from "@nextui-org/react";
 import { ActionFunction, json, redirect } from "@remix-run/node";
 import { useActionData, Form } from "@remix-run/react";
 import { useEffect } from "react";
+import Footer from "~/components/footer";
 import { getSupabase } from "~/supabaseClient";
 
 interface ActionData {
@@ -136,6 +137,7 @@ export default function Signup() {
           </Button>
         </Form>
       </Card>
+      <Footer/>
     </div>
   );
 }

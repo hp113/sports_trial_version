@@ -1,6 +1,7 @@
 import { Button, Card } from "@nextui-org/react";
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
+import Footer from "~/components/footer";
 
 export const meta: MetaFunction = () => {
   return [
@@ -43,6 +44,7 @@ export default function Index() {
           </Card>
         </ul>
       </nav>
+      <Footer/>
     </div>
   );
 }
